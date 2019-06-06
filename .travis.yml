@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t bweishoff/docker-react -f Docerfile.dev .
+
+script:
+  - docker run bweishoff/docker-react npm run test -- --coverage
+  
